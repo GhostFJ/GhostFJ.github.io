@@ -1,0 +1,428 @@
+
+
+<!DOCTYPE html>
+<html lang="en" color-mode=light>
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Vue知识 &amp; 问题记录 - Hexo</title>
+  <meta name="apple-mobile-web-app-capable" content="yes" />
+  <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+  <meta name="google" content="notranslate" />
+  
+  <meta name="description" content="1、vue-pdf插件加载本地PDF预览问题描述：
+在...">
+  <meta name="author" content="FangJust">
+  <link rel="icon" href="/images/icons/favicon-16x16.png" type="image/png" sizes="16x16">
+  <link rel="icon" href="/images/icons/favicon-32x32.png" type="image/png" sizes="32x32">
+  <link rel="apple-touch-icon" href="/images/icons/apple-touch-icon.png" sizes="180x180">
+  <meta rel="mask-icon" href="/images/icons/stun-logo.svg" color="#333333">
+  
+    <meta rel="msapplication-TileImage" content="/images/icons/favicon-144x144.png">
+    <meta rel="msapplication-TileColor" content="#000000">
+  
+
+  
+<link rel="stylesheet" href="/css/style.css">
+
+
+  
+    
+<link rel="stylesheet" href="//at.alicdn.com/t/font_1445822_r673sha78lq.css">
+
+  
+
+  
+    
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/fancybox/3.5.7/jquery.fancybox.min.css">
+
+  
+
+  
+    
+      
+        
+        
+<link rel="stylesheet" href="https://cdn.bootcss.com/highlight.js/9.18.1/styles/xcode.min.css" name="highlight-style" mode="light">
+
+      
+        
+        
+<link rel="stylesheet" href="https://cdn.bootcss.com/highlight.js/9.18.1/styles/solarized-dark.min.css" name="highlight-style" mode="dark">
+
+      
+  
+
+  <script>
+    var CONFIG = window.CONFIG || {};
+    var ZHAOO = window.ZHAOO || {};
+    CONFIG = {
+      isHome: false,
+      fancybox: true,
+      pjax: false,
+      lazyload: {
+        enable: true,
+        only_post: 'false',
+        loading: '[object Object]'
+      },
+      donate: {
+        enable: true,
+        alipay: 'https://pic.izhaoo.com/alipay.jpg',
+        wechat: 'https://pic.izhaoo.com/wechat.jpg'
+      },
+      galleries: {
+        enable: true
+      },
+      fab: {
+        enable: true,
+        always_show: false
+      },
+      carrier: {
+        enable: true
+      },
+      daovoice: {
+        enable: false
+      },
+      preview: {
+        background: {
+          default: '',
+          api: ''
+        },
+        motto: {
+          default: '我在开了灯的床头下，想问问自己的心啊。',
+          typing: true,
+          api: 'https://v2.jinrishici.com/one.json',
+          data_contents: '["data","content"]'
+        },
+      },
+      qrcode: {
+        enable: true,
+        type: 'url',
+        image: 'https://pic.izhaoo.com/weapp-code.jpg',
+      },
+      toc: {
+        enable: true
+      },
+      scrollbar: {
+        type: 'default'
+      },
+      notification: {
+        enable: false,
+        delay: 4500,
+        list: '',
+        page_white_list: '',
+        page_black_list: ''
+      },
+      search: {
+        enable: false,
+        path: ''
+      }
+    }
+  </script>
+
+  
+
+  
+
+<meta name="generator" content="Hexo 5.4.0"></head>
+
+<body class="lock-screen">
+  <div class="loading"></div>
+  
+    
+
+
+  <nav class="navbar">
+    <div class="left">
+      
+        <i class="iconfont iconhome j-navbar-back-home"></i>
+      
+      
+        <i class="iconfont iconqrcode j-navbar-qrcode"></i>
+      
+      
+        <i class="iconfont iconmoono" id="color-toggle" color-toggle="light"></i>
+      
+      
+    </div>
+    <div class="center">Vue知识 &amp; 问题记录</div>
+    <div class="right">
+      <i class="iconfont iconmenu j-navbar-menu"></i>
+    </div>
+    
+      <div id="qrcode-navbar"></div>
+    
+  </nav>
+
+  
+  
+
+<nav class="menu">
+  <div class="menu-container">
+    <div class="menu-close">
+      <i class="iconfont iconbaseline-close-px"></i>
+    </div>
+    <ul class="menu-content"><li class="menu-item">
+        <a href="/ " class="underline "> 首页</a>
+      </li><li class="menu-item">
+        <a href="/galleries/ " class="underline "> 摄影</a>
+      </li><li class="menu-item">
+        <a href="/archives/ " class="underline "> 归档</a>
+      </li><li class="menu-item">
+        <a href="/tags/ " class="underline "> 标签</a>
+      </li><li class="menu-item">
+        <a href="/categories/ " class="underline "> 分类</a>
+      </li><li class="menu-item">
+        <a href="/about/ " class="underline "> 关于</a>
+      </li></ul>
+    
+      <div class="menu-copyright"><p>Powered by <a target="_blank" href="https://hexo.io">Hexo</a>  |  Theme - <a target="_blank" href="https://github.com/izhaoo/hexo-theme-zhaoo">zhaoo</a></p></div>
+    
+  </div>
+</nav>
+  <main id="main">
+  <div class="article-wrap">
+    <div class="row container">
+      <div class="col-xl-3"></div>
+      <div class="col-xl-6"><article class="article">
+  <div class="wrap">
+    <section class="head">
+  <img   class="lazyload" data-original="https://picsum.photos/400/300.jpg" src="data:image/gif;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAADUlEQVQImWNgYGBgAAAABQABh6FO1AAAAABJRU5ErkJggg=="  draggable="false">
+  <div class="head-mask">
+    <h1 class="head-title">Vue知识 &amp; 问题记录</h1>
+    <div class="head-info">
+      <span class="post-info-item"><i class="iconfont iconcalendar"></i>July 26, 2021</span>
+      
+      <span class="post-info-item"><i class="iconfont iconfont-size"></i>3256</span>
+    </div>
+  </div>
+</section>
+    <section class="main">
+      <section class="content">
+        <h2 id="1、vue-pdf插件加载本地PDF预览"><a href="#1、vue-pdf插件加载本地PDF预览" class="headerlink" title="1、vue-pdf插件加载本地PDF预览"></a><strong>1、</strong>vue-pdf插件加载本地PDF预览</h2><p><strong>问题描述：</strong></p>
+<p>在使用vue-pdf插件加载本地PDF文件进行预览时，报如下错误：</p>
+<p>‘Warning: Ignoring invalid character “33” in hex string’</p>
+<p>‘Warning: Ignoring invalid character “79” in hex string’…</p>
+<p><strong>解决方法：</strong></p>
+<p> 在vue-cli3脚手架搭建的项目中，读取本地的PDF文件需要放到public文件夹中，在引用时，不能使用相对路径，且‘/’即表示public文件夹(需略去public)</p>
+<h2 id="2、eslint报错：-Expected-linebreaks-to-be-‘LF’-but-found-‘CRLF’"><a href="#2、eslint报错：-Expected-linebreaks-to-be-‘LF’-but-found-‘CRLF’" class="headerlink" title="2、eslint报错： Expected linebreaks to be ‘LF’ but found ‘CRLF’"></a>2、eslint报错： Expected linebreaks to be ‘LF’ but found ‘CRLF’</h2><p><strong>问题描述：</strong></p>
+<p>VUE项目中eslint报错： Expected linebreaks to be ‘LF’ but found ‘CRLF’</p>
+<p><strong>解决方法：</strong>右下角或者修改默认配置</p>
+<p>Windows系统下文本文件的换行符是： 回车+换行CR/LF即 \r\n或^M\n</p>
+<p>linux/unix系统下文本文件的换行符是：换行LF即 \n</p>
+<p>Mac OS系统下文本文件的换行符：回车CR即 \r或^M</p>
+<h2 id="3、使用常量替代-Mutation-事件类型"><a href="#3、使用常量替代-Mutation-事件类型" class="headerlink" title="3、使用常量替代 Mutation 事件类型"></a>3、使用常量替代 Mutation 事件类型</h2><p>使用常量替代 mutation 事件类型在各种 Flux 实现中是很常见的模式。这样可以使 linter 之类的工具发挥作用，同时把这些常量放在单独的文件中可以让你的代码合作者对整个 app 包含的 mutation 一目了然</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><code class="hljs js"><span class="hljs-comment">// mutation-types.js </span><br><span class="hljs-keyword">export</span> <span class="hljs-keyword">const</span> SOME_MUTATION = <span class="hljs-string">&#x27;SOME_MUTATION&#x27;</span> <br><span class="hljs-comment">// store.js </span><br><span class="hljs-keyword">import</span> Vuex <span class="hljs-keyword">from</span> <span class="hljs-string">&#x27;vuex&#x27;</span> <br><span class="hljs-keyword">import</span> &#123; SOME_MUTATION &#125; <span class="hljs-keyword">from</span> <span class="hljs-string">&#x27;./mutation-types&#x27;</span> <br><span class="hljs-keyword">const</span> store = <span class="hljs-keyword">new</span> Vuex.Store(&#123;  <br>	<span class="hljs-attr">state</span>: &#123; ... &#125;,<br>	<span class="hljs-attr">mutations</span>: &#123;    <br>	<span class="hljs-comment">// 我们可以使用 ES2015 风格的计算属性命名功能来使用一个常量作为函数名    </span><br>	[SOME_MUTATION] (state) &#123;<br>    	<span class="hljs-comment">// mutate state    </span><br>    &#125;<br>  &#125; <br>&#125;)<br></code></pre></td></tr></table></figure>
+
+<p>同理，对于Action，会经常用到 ES2015 的 <a target="_blank" rel="noopener" href="https://github.com/lukehoban/es6features#destructuring">参数解构 (opens new window)</a>来简化代码（特别是我们需要调用 commit很多次的时候）</p>
+<figure class="highlight isbl"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><code class="hljs isbl"><span class="hljs-variable">actions</span>: &#123;<br>  <span class="hljs-variable">increment</span> (&#123; <span class="hljs-variable">commit</span> &#125;) &#123;<br>    <span class="hljs-function"><span class="hljs-title">commit</span>(<span class="hljs-string">&#x27;increment&#x27;</span>)</span><br>  &#125;<br>&#125;<br></code></pre></td></tr></table></figure>
+
+<h2 id="4、MQTT使用："><a href="#4、MQTT使用：" class="headerlink" title="4、MQTT使用："></a>4、MQTT使用：</h2><p>通过协议指定使用的连接方式 </p>
+<p>// ws 未加密 WebSocket 连接 </p>
+<p>// wss 加密 WebSocket 连接 </p>
+<p> // mqtt 未加密 TCP 连接</p>
+<p> // mqtts 加密 TCP 连接</p>
+<p> // wxs 微信小程序连接  </p>
+<p>// alis 支付宝小程序连接</p>
+<h2 id="5-关于Vue中-style的scoped用法："><a href="#5-关于Vue中-style的scoped用法：" class="headerlink" title="5.关于Vue中 style的scoped用法："></a>5.关于Vue中 style的scoped用法：</h2><p>发现使用的组件设置的样式在页面中不起作用，被层叠覆盖</p>
+<p>当一个style标签拥有scoped属性时候，它的css样式只能用于当前的Vue组件，可以使组件的样式不相互污染。如果一个项目的所有style标签都加上了scoped属性，相当于实现了样式的模块化。</p>
+<p>scoped看起来很好用，当时在Vue项目中，当我们引入第三方组件库时(如使用vue-awesome-swiper实现移动端轮播)，需要在局部组件中修改第三方组件库的样式，而又不想去除scoped属性造成组件之间的样式覆盖。这时我们可以通过特殊的方式穿透scoped。</p>
+<h2 id="6，this-v是使用vuelidate后注册到vue中的"><a href="#6，this-v是使用vuelidate后注册到vue中的" class="headerlink" title="6，this.$v是使用vuelidate后注册到vue中的"></a><strong>6，this.$v是使用vuelidate后注册到vue中的</strong></h2><p>可以打印出来看看，注意使用</p>
+<h2 id="7、Unexpected-token-u-in-JSON-at-position-0："><a href="#7、Unexpected-token-u-in-JSON-at-position-0：" class="headerlink" title="7、Unexpected token u in JSON at position 0："></a>7、Unexpected token u in JSON at position 0：</h2><p>我出现这个错误的原因是：我使用localStorage或者sessionStorage存入本地数据时，</p>
+<p>存入了一个值为 Undefined ,当我在去取出来转换为JSON对象的时候，就是出现 Unexpected token u in JSON at position 0 报错</p>
+<p>所以，当你存入数据和使用JSON.parse转换时需要判断一下，这个值不能为Undefined，才能进行JSON.parse</p>
+<p>本质上的问题就是json转换的对象时个空的</p>
+<h2 id="7-value-push-is-not-a-function-："><a href="#7-value-push-is-not-a-function-：" class="headerlink" title="7.value.push is not a function  ："></a>7.value.push is not a function  ：</h2><p>在使用el-select 和el-option时，注意， el-select绑定的值，如果是多选，一定要是个数组，同时注意在请求后台数据时，如果赋值成了字符串，就会出现这个错误</p>
+<h2 id="8、请求头问题"><a href="#8、请求头问题" class="headerlink" title="8、请求头问题"></a>8、请求头问题</h2><p>blog测试开发过程中，发现put修改一直没有结果，发现是后端没有获取到数据，因为后端是Query获取拼接到url后面的参数，而我们的请求头是 application/json;charset=UTF-8，以payload的形式，所有取不到，故修改后端代码s</p>
+<h2 id="9、渲染问题"><a href="#9、渲染问题" class="headerlink" title="9、渲染问题"></a>9、渲染问题</h2><p> Error in render: “TypeError:Cannot read property xxx of undefined”</p>
+<p>模板在渲染时候，读取对象中的某个对象的属性值时，这个对象不存在</p>
+<p>原因：</p>
+<p>vue渲染机制中：</p>
+<p>异步数据先显示初始数据，再显示带数据的数据，所以上来加载时还是一个空对象，没有从后台取到数据</p>
+<p>解决：</p>
+<p>在前面加v-if判断条件，如果取不到则不加载即可，（注意，不能用v-show，v-show的机制是加载后，根据条件判断是否显示）</p>
+<h2 id="10、vue中的transition"><a href="#10、vue中的transition" class="headerlink" title="10、vue中的transition"></a>10、vue中的transition</h2><p>Vue 提供了 transition 的封装组件，在下列情形中，可以给任何元素和组件添加进入/离开过渡</p>
+<ol>
+<li>条件渲染 (使用 v-if)</li>
+<li>条件展示 (使用 v-show)</li>
+<li>动态组件</li>
+<li>组件根节点</li>
+</ol>
+<h2 id="11、ref-写在标签上时：this-refs-名字-获取的是标签对应的dom元素"><a href="#11、ref-写在标签上时：this-refs-名字-获取的是标签对应的dom元素" class="headerlink" title="11、ref 写在标签上时：this.$refs.名字  获取的是标签对应的dom元素"></a>11、ref 写在标签上时：this.$refs.名字  获取的是标签对应的dom元素</h2><p>​     ref 写在组件上时：这时候获取到的是 子组件（比如counter）的引用</p>
+<h2 id="12、scss中引用图片路径，可以这么写"><a href="#12、scss中引用图片路径，可以这么写" class="headerlink" title="12、scss中引用图片路径，可以这么写"></a>12、scss中引用图片路径，可以这么写</h2><figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs css"><span class="hljs-attribute">background</span>: <span class="hljs-built_in">url</span>(<span class="hljs-string">&quot;~@/assets/img/footer.jpg&quot;</span>) no-repeat;<br></code></pre></td></tr></table></figure>
+
+<h2 id="13、vue的-nextTick"><a href="#13、vue的-nextTick" class="headerlink" title="13、vue的 nextTick"></a>13、vue的 nextTick</h2><h2 id="14、js中如果想用变量值来做对象的属性名，用中括号-：如下示例"><a href="#14、js中如果想用变量值来做对象的属性名，用中括号-：如下示例" class="headerlink" title="14、js中如果想用变量值来做对象的属性名，用中括号 []：如下示例"></a>14、js中如果想用变量值来做对象的属性名，用中括号 []：如下示例</h2><figure class="highlight fortran"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><code class="hljs fortran">for (const item of temp) &#123;<br>       const <span class="hljs-built_in">index</span> = item.pid<br>       <span class="hljs-keyword">if</span> (<span class="hljs-built_in">index</span> <span class="hljs-keyword">in</span> <span class="hljs-keyword">data</span>) &#123;<br>         <span class="hljs-keyword">data</span>[<span class="hljs-built_in">index</span>].push(item)<br>       &#125; <span class="hljs-keyword">else</span> &#123;<br>         <span class="hljs-keyword">data</span>[<span class="hljs-built_in">index</span>] = []<br>         <span class="hljs-keyword">data</span>[<span class="hljs-built_in">index</span>].push(item)<br>       &#125;<br>     &#125;<br></code></pre></td></tr></table></figure>
+
+<h2 id="15、axios默认不带cookie，开启需要在-配置中加：withCredentials-true"><a href="#15、axios默认不带cookie，开启需要在-配置中加：withCredentials-true" class="headerlink" title="15、axios默认不带cookie，开启需要在 配置中加：withCredentials: true"></a>15、axios默认不带cookie，开启需要在 配置中加：withCredentials: true</h2><h2 id="16、样式穿透示例、内容换行"><a href="#16、样式穿透示例、内容换行" class="headerlink" title="16、样式穿透示例、内容换行"></a>16、样式穿透示例、内容换行</h2><figure class="highlight ruby"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><code class="hljs ruby">.el-table&#123;<br>  <span class="hljs-symbol">:</span><span class="hljs-symbol">:v-deep</span> .cell &#123;<br>    white-<span class="hljs-symbol">space:</span> pre-line !important;<span class="hljs-regexp">/*保留换行符*/</span><br>  &#125;<br>&#125;<br></code></pre></td></tr></table></figure>
+
+
+      </section>
+      <section class="extra">
+        
+          <ul class="copyright">
+  
+    <li><strong>本文作者：</strong>FangJust</li>
+    <li><strong>本文链接：</strong><a href="https://ghostfj.github.io/2021/07/26/Vue%E7%9F%A5%E8%AF%86&%E9%97%AE%E9%A2%98%E6%80%BB%E7%BB%93/index.html" title="https:&#x2F;&#x2F;ghostfj.github.io&#x2F;2021&#x2F;07&#x2F;26&#x2F;Vue%E7%9F%A5%E8%AF%86&amp;%E9%97%AE%E9%A2%98%E6%80%BB%E7%BB%93&#x2F;index.html">https:&#x2F;&#x2F;ghostfj.github.io&#x2F;2021&#x2F;07&#x2F;26&#x2F;Vue%E7%9F%A5%E8%AF%86&amp;%E9%97%AE%E9%A2%98%E6%80%BB%E7%BB%93&#x2F;index.html</a></li>
+    <li><strong>版权声明：</strong>本博客所有文章均采用 <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/deed.zh" title="BY-NC-SA" target="_blank" rel="noopener">BY-NC-SA</a> 许可协议，转载请注明出处！</li>
+  
+</ul>
+        
+        
+          <section class="donate">
+  <div id="qrcode-donate">
+    <img   class="lazyload" data-original="https://pic.izhaoo.com/alipay.jpg" src="data:image/gif;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAADUlEQVQImWNgYGBgAAAABQABh6FO1AAAAABJRU5ErkJggg==" >
+  </div>
+  <div class="icon">
+    <a href="javascript:;" id="alipay"><i class="iconfont iconalipay"></i></a>
+    <a href="javascript:;" id="wechat"><i class="iconfont iconwechat-fill"></i></a>
+  </div>
+</section>
+        
+        
+        
+  <nav class="nav">
+    <a></a>
+    <a href="/2021/07/26/hello-world/">测试2<i class="iconfont iconright"></i></a>
+  </nav>
+
+      </section>
+      
+    </section>
+  </div>
+</article></div>
+      <div class="col-xl-3">
+        
+          
+  <aside class="toc-wrap">
+    <h3 class="toc-title">文章目录：</h3>
+    <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#1%E3%80%81vue-pdf%E6%8F%92%E4%BB%B6%E5%8A%A0%E8%BD%BD%E6%9C%AC%E5%9C%B0PDF%E9%A2%84%E8%A7%88"><span class="toc-text">1、vue-pdf插件加载本地PDF预览</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#2%E3%80%81eslint%E6%8A%A5%E9%94%99%EF%BC%9A-Expected-linebreaks-to-be-%E2%80%98LF%E2%80%99-but-found-%E2%80%98CRLF%E2%80%99"><span class="toc-text">2、eslint报错： Expected linebreaks to be ‘LF’ but found ‘CRLF’</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#3%E3%80%81%E4%BD%BF%E7%94%A8%E5%B8%B8%E9%87%8F%E6%9B%BF%E4%BB%A3-Mutation-%E4%BA%8B%E4%BB%B6%E7%B1%BB%E5%9E%8B"><span class="toc-text">3、使用常量替代 Mutation 事件类型</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#4%E3%80%81MQTT%E4%BD%BF%E7%94%A8%EF%BC%9A"><span class="toc-text">4、MQTT使用：</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#5-%E5%85%B3%E4%BA%8EVue%E4%B8%AD-style%E7%9A%84scoped%E7%94%A8%E6%B3%95%EF%BC%9A"><span class="toc-text">5.关于Vue中 style的scoped用法：</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#6%EF%BC%8Cthis-v%E6%98%AF%E4%BD%BF%E7%94%A8vuelidate%E5%90%8E%E6%B3%A8%E5%86%8C%E5%88%B0vue%E4%B8%AD%E7%9A%84"><span class="toc-text">6，this.$v是使用vuelidate后注册到vue中的</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#7%E3%80%81Unexpected-token-u-in-JSON-at-position-0%EF%BC%9A"><span class="toc-text">7、Unexpected token u in JSON at position 0：</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#7-value-push-is-not-a-function-%EF%BC%9A"><span class="toc-text">7.value.push is not a function  ：</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#8%E3%80%81%E8%AF%B7%E6%B1%82%E5%A4%B4%E9%97%AE%E9%A2%98"><span class="toc-text">8、请求头问题</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#9%E3%80%81%E6%B8%B2%E6%9F%93%E9%97%AE%E9%A2%98"><span class="toc-text">9、渲染问题</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#10%E3%80%81vue%E4%B8%AD%E7%9A%84transition"><span class="toc-text">10、vue中的transition</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#11%E3%80%81ref-%E5%86%99%E5%9C%A8%E6%A0%87%E7%AD%BE%E4%B8%8A%E6%97%B6%EF%BC%9Athis-refs-%E5%90%8D%E5%AD%97-%E8%8E%B7%E5%8F%96%E7%9A%84%E6%98%AF%E6%A0%87%E7%AD%BE%E5%AF%B9%E5%BA%94%E7%9A%84dom%E5%85%83%E7%B4%A0"><span class="toc-text">11、ref 写在标签上时：this.$refs.名字  获取的是标签对应的dom元素</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#12%E3%80%81scss%E4%B8%AD%E5%BC%95%E7%94%A8%E5%9B%BE%E7%89%87%E8%B7%AF%E5%BE%84%EF%BC%8C%E5%8F%AF%E4%BB%A5%E8%BF%99%E4%B9%88%E5%86%99"><span class="toc-text">12、scss中引用图片路径，可以这么写</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#13%E3%80%81vue%E7%9A%84-nextTick"><span class="toc-text">13、vue的 nextTick</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#14%E3%80%81js%E4%B8%AD%E5%A6%82%E6%9E%9C%E6%83%B3%E7%94%A8%E5%8F%98%E9%87%8F%E5%80%BC%E6%9D%A5%E5%81%9A%E5%AF%B9%E8%B1%A1%E7%9A%84%E5%B1%9E%E6%80%A7%E5%90%8D%EF%BC%8C%E7%94%A8%E4%B8%AD%E6%8B%AC%E5%8F%B7-%EF%BC%9A%E5%A6%82%E4%B8%8B%E7%A4%BA%E4%BE%8B"><span class="toc-text">14、js中如果想用变量值来做对象的属性名，用中括号 []：如下示例</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#15%E3%80%81axios%E9%BB%98%E8%AE%A4%E4%B8%8D%E5%B8%A6cookie%EF%BC%8C%E5%BC%80%E5%90%AF%E9%9C%80%E8%A6%81%E5%9C%A8-%E9%85%8D%E7%BD%AE%E4%B8%AD%E5%8A%A0%EF%BC%9AwithCredentials-true"><span class="toc-text">15、axios默认不带cookie，开启需要在 配置中加：withCredentials: true</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#16%E3%80%81%E6%A0%B7%E5%BC%8F%E7%A9%BF%E9%80%8F%E7%A4%BA%E4%BE%8B%E3%80%81%E5%86%85%E5%AE%B9%E6%8D%A2%E8%A1%8C"><span class="toc-text">16、样式穿透示例、内容换行</span></a></li></ol>
+  </aside>
+
+        
+      </div>
+    </div>
+  </div>
+</main>
+  
+
+<footer class="footer">
+  <div class="footer-social"><a 
+        href="tencent://message/?Menu=yes&uin=894519210 "
+        target="_blank"
+        class="footer-social-item"
+        onMouseOver="this.style.color= '#12B7F5'" 
+        onMouseOut="this.style.color='#33333D'">
+          <i class="iconfont  iconQQ "></i>
+      </a><a 
+        href="javascript:; "
+        target="_blank"
+        class="footer-social-item"
+        onMouseOver="this.style.color= '#09BB07'" 
+        onMouseOut="this.style.color='#33333D'">
+          <i class="iconfont  iconwechat-fill "></i>
+      </a><a 
+        href="https://www.instagram.com/izhaoo/ "
+        target="_blank"
+        class="footer-social-item"
+        onMouseOver="this.style.color= '#DA2E76'" 
+        onMouseOut="this.style.color='#33333D'">
+          <i class="iconfont  iconinstagram "></i>
+      </a><a 
+        href="https://github.com/zhaoo "
+        target="_blank"
+        class="footer-social-item"
+        onMouseOver="this.style.color= '#9f7be1'" 
+        onMouseOut="this.style.color='#33333D'">
+          <i class="iconfont  icongithub-fill "></i>
+      </a><a 
+        href="mailto:izhaoo@163.com "
+        target="_blank"
+        class="footer-social-item"
+        onMouseOver="this.style.color=#FF3B00" 
+        onMouseOut="this.style.color='#33333D'">
+          <i class="iconfont  iconmail"></i>
+      </a></div>
+  
+    <div class="footer-copyright"><p>Powered by <a target="_blank" href="https://hexo.io">Hexo</a>  |  Theme - <a target="_blank" href="https://github.com/izhaoo/hexo-theme-zhaoo">zhaoo</a></p></div>
+  
+</footer>
+  
+      <div class="fab fab-plus">
+    <i class="iconfont iconplus"></i>
+  </div>
+  
+  
+  <div class="fab fab-up">
+    <i class="iconfont iconcaret-up"></i>
+  </div>
+  
+  
+  
+    
+<script src="/js/color-mode.js"></script>
+
+  
+  
+</body>
+
+<script src="https://cdn.bootcss.com/jquery/3.4.1/jquery.min.js"></script>
+
+
+
+  
+<script src="https://cdn.bootcdn.net/ajax/libs/jquery.lazyload/1.9.1/jquery.lazyload.min.js"></script>
+
+
+
+
+  
+<script src="https://cdnjs.cloudflare.com/ajax/libs/fancybox/3.5.7/jquery.fancybox.min.js"></script>
+
+
+
+
+
+
+  
+<script src="https://cdn.bootcdn.net/ajax/libs/jquery.qrcode/1.0/jquery.qrcode.min.js"></script>
+
+
+
+
+<script src="/js/utils.js"></script>
+<script src="/js/script.js"></script>
+
+
+
+
+
+
+
+  <script>
+    (function () {
+      var bp = document.createElement('script');
+      var curProtocol = window.location.protocol.split(':')[0];
+      if (curProtocol === 'https') {
+        bp.src = 'https://zz.bdstatic.com/linksubmit/push.js';
+      } else {
+        bp.src = 'http://push.zhanzhang.baidu.com/push.js';
+      }
+      var s = document.getElementsByTagName("script")[0];
+      s.parentNode.insertBefore(bp, s);
+    })();
+  </script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+</html>
